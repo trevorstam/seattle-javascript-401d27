@@ -27,3 +27,4 @@ All readings, homework, labs, and quizzes will be published, in Canvas, the week
 - Prove it ... `git remote -v`
 - Every day, get the latest ...
 - `git rebase upstream/master`
+- [Syncing a fork](https://help.github.com/articles/syncing-a-fork/)

@@ -42,5 +42,5 @@ Create a NodeJS module in the `lib` directory named `arithmetic.js`. This module
 ### Documentation
 In your README.md file, describe the exported values of each module defined in your `lib` directory. Every function description should include it's airty (expected number of parameters), the expected data for each parameter (data-type and limitations), and the expected output behavior (for both valid and invalid use). Feel free to include any additional information that you would like.
 
-### Deployment
+### Deployment - Stretch Goal : Will cover in class 2
 Pushing to GitHub should trigger Travis-CI build. See https://dev.to/lauragift21/setup-continuous-integration-with-travis-ci-in-your-nodejs-app-26i2

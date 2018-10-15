@@ -13,7 +13,6 @@ Create a NodeJS module in the `lib` directory named `greet.js`.  This module sho
 * The `greet` function should return `null` if the input is not a string
 
 #### Greet Module Tests
-* Use the faker module to randomize input
 * Write a test that expects the greet module to return `null` when you supply non-string values
 * Write a test the expects the greet module to return `'hello world'`
   * This should happen when invoked with `'world'` as the first argument

@@ -2,8 +2,6 @@
 =====================================
 > Advanced Software Development
 
-[![](https://img.shields.io/badge/labs-401d27-yellow.svg)](https://github.com/codefellows-seattle-javascript-401d27)
-
 
 # Welcome
 

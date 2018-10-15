@@ -19,3 +19,12 @@ Each day of class will include a new directory created named after the class num
 
 # Assignments
 All readings, homework, labs, and quizzes will be published, in Canvas, the week before they are assigned. All coding assignment instructions and materials will be organized into git repositories and will be published the day of the assignment.  Most assignments are due the by end of day.
+
+## Working with our class repository
+- FORK It!
+- Set up a new remote `git remote add upstream git@github.com:codefellows/seattle-javascript-401d27.git`
+  - Or ... `git remote add upstream https://github.com/codefellows/seattle-javascript-401d27`
+- Fetch our branches ... `git fetch upstream`
+- Prove it ... `git remote -v`
+- Every day, get the latest ...
+- `git rebase upstream/master`

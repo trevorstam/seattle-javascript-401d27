@@ -29,12 +29,12 @@ Create a NodeJS module in the `lib` directory named `arithmetic.js`. This module
 
 
 #### Arithmetic Module Tests
-* Use the faker module to randomize input
 * Test each method for proper use (invoked with number arguments)
 * Test each method for improper use (invoked with one or more non-number arguments)
 
 
 ### Stretch Goals
+* Refactor the arithmetic module to use the faker module to randomize input
 * Refactor the arithmetic module to support multiply and divide (be careful to not divide by zero!)
 * Refactor the arithmetic module to allow for an array of params so that you can do deeper calculations
 

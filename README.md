@@ -22,8 +22,8 @@ All readings, homework, labs, and quizzes will be published, in Canvas, the week
 
 ## Working with our class repository
 - FORK It!
-- Set up a new remote `git remote add upstream git@github.com:codefellows/seattle-javascript-401d27.git`
-  - Or ... `git remote add upstream https://github.com/codefellows/seattle-javascript-401d27`
+- Set up a new remote `git remote add upstream https://github.com/codefellows/seattle-javascript-401d27`
+- Fetch our branches ... `git fetch upstream`
 - Prove it ... `git remote -v`
 - Every day, get the latest ...
 - `git rebase upstream/master`

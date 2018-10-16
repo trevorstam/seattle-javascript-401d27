@@ -2,11 +2,10 @@
 ======
 
 ## Submission Instructions
-* Work in a fork of this repository
 * Work in a branch on your fork
-* Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-susan`
-* Open a pull request to this repository
-* Submit on canvas a question and observation, how long you spent, and a link to your pull request
+* Write all of your code in a directory named `lab-02`
+* Open a pull request from your branch to the master branch of your fork
+* Submit on Canvas a question and observation, how long you spent, and a link to your pull request
 
 ## Configuration
 Configure the root of your repository with the following files and directories. Thoughtfully name and organize any additional configuration or module files.
@@ -28,11 +27,11 @@ Configure the root of your repository with the following files and directories. 
   * implement a List constructor using a constructor, factory, or class
   * implement the length property
   * implement the `push()` and `pop()`, `slice()` methods on the List prototype
-  * implement `forEach()`, `map()`, `filter()`, and `reduce()` as pure methods on the List prototype
+  * implement `map()`, `filter()`, and `reduce()` as pure methods on the List prototype
   * Do not use any built-in array methods to do this
   
 #### Stretch Goals
-  * implement `shift()`, `unshift()`, and `splice()` as methods on the List prototype
+  * implement `forEach()`, `shift()`, `unshift()`, and `splice()` as methods on the List prototype
   * Note that for these, because they mutate the list index, you will need to account for re-indexing the keys numerically from 0
 
 ## Testing

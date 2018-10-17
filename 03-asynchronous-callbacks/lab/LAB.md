@@ -2,29 +2,28 @@
 ===
 
 ## Submission Instructions
-* Work in a fork of this repository
-* Work in a branch on your fork
-* Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-susan`
-* Open a pull request to this repository
+* Work in a branch on your fork, e.g. lab03
+* Write all of your code in the included lab folder.
+* Open a pull request to your repository master branch.
 * Submit on canvas a question and observation, how long you spent, and a link to your pull request
 
 ## Resources
 * [fs module docs](https://nodejs.org/api/fs.html)
 
 ## Configuration
-Configure the root of your repository with the following files and directories. Thoughfully name and organize any aditional configuration or module files.
+Configure your lab directory with the following files and directories. Thoughfully name and organize any aditional configuration or module files.
 * **README.md** - contains documentation
 * **.gitignore** - contains a [robust](http://gitignore.io) `.gitignore` file
 * **.eslintrc** - contains the course linter configuratoin
 * **.eslintignore** - contains the course linter ignore configuration
-* **.travis.yml** - contains your travis testing instructions
 * **package.json** - contains npm package config 
   * jest and eslint must be dependencies
   * create a `lint` script for running eslint `"lint": "eslint **/.js"`
   * create a `test` script for running tests
 * **lib/** - contains module definitions
 * **data/** - contains the text files used by the program
-* **\_\_test\_\_/** - contains unit tests
+* ** a test folder ** - contains unit tests
+* (alternately, put your tests in lib folder next to files you are testing.)
 
 ## Testing
 ##### File Reader Module Tests

@@ -1,0 +1,13 @@
+{
+  "name": "lab02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "list.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "watch": "jest --verbose --coverage --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

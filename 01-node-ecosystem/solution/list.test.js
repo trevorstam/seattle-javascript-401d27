@@ -1,7 +1,6 @@
 'use strict';
 
 const List = require('./list.js');
-// const List = require('./list-2.js');
 
 describe('Testing the list module', () => {
 

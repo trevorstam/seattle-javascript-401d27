@@ -16,4 +16,4 @@ module.exports = (paths, doneHandler) => {
     .then(() => doneHandler(null, contents))
     .catch(doneHandler);
 
-}
+};

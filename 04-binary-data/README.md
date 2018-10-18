@@ -10,6 +10,10 @@
 * Read [node buffer api docs]
 * Watch [endian and little endian]
 
+## Reference
+* [Why Binary?](https://turbofuture.com/computers/Why-is-Binary-Used-in-Computers)
+* [Why use Hex?](https://medium.com/@savas/why-do-we-use-hexadecimal-d6d80b56f026)
+
 ## Outline
 
 ### Javascript Data Modeling
@@ -122,4 +126,5 @@ DEC |HEX |BIN
 <!--links -->
 [events api docs]: https://nodejs.org/api/events.html
 [bitmap file format]: https://en.wikipedia.org/wiki/BMP_file_format
+
 

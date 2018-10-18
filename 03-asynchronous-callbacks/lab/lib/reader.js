@@ -1,29 +1,39 @@
 'use strict';
 const fs = require('fs');
 
+const meenie = `${__dirname}/../data/meenie.txt`;
+const eenie = `${__dirname}/../data/eenie.txt`;
+const moe = `${__dirname}/../data/moe.txt`;
 
-module.exports = ((paths, filesTotalRead)=>{
+let paths = [moe, meenie, eenie];
+
+// let data1 = fs.readFileSync(moe);
+
+// let data2 = fs.readFileSync(meenie);
+
+// let data3 = fs.readFileSync(eenie);
+
+const reader = ((paths, filesTotalRead)=>{
   const pushArray = [];
   const moeRead = ((error, data1) =>{
     if (error){
       filesTotalRead(error);
       return;
     }
-  });
-  fs.readFile(paths[0], moeRead);
-  pushArray.push(null, data1.toString());
+    pushArray.push(null, data1.toString());
+    fs.readFile(paths[0], meenieRead);
     
-
+  });
+  
   const meenieRead =((error, data2) =>{
     if (error) {
       filesTotalRead(error);
       return;
     }
+    pushArray.push(null, data2.toString());
+    fs.readFile(paths[1], eenieRead);
   });
-  fs.readFile(paths[1], meenieRead);
-  pushArray.push(null, data2.toString());
   
-
   const eenieRead = ((error, data3) => {
     if (error){
       filesTotalRead(error);
@@ -36,3 +46,5 @@ module.exports = ((paths, filesTotalRead)=>{
   filesTotalRead(null, pushArray);
   
 });
+
+module.exports = reader;

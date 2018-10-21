@@ -1,28 +1,36 @@
 const reader = require('../lib/reader');
 
-const meenie = `${__dirname}/../data/meenie.txt`;
-const eenie = `${__dirname}/../data/eenie.txt`;
-const moe = `${__dirname}/../data/moe.txt`;
+const file1 = `${__dirname}/../data/meenie.txt`;
+const file2 = `${__dirname}/../data/moe.txt`;
+const file3 = `${__dirname}/../data/eenie.txt`;
 
-let testPaths = [moe, meenie, eenie];
 
-// let data1 = fs.readFileSync(moe);
+const testPaths = [file1, file2, file3];
 
-// let data2 = fs.readFileSync(meenie);
-
-// let data3 = fs.readFileSync(eenie);
-
-describe('reader module', ()=>{
-  it('should have a length of 3', (done)=>{
-    reader(testPaths,(error, pushArray)=>{
-        expect(pushArray.length).toBe(3);
-        done();
-    }
-    
+describe('reader module', () => {
+  it('should have a length of 3', (done) => {
+    reader(testPaths, (error, pushArray) => {
+      expect(pushArray.length).toBe(3);
+      done();
+    });
   });
-  it('should return meenie as the second text', (done)=>{
-      reader(testPaths, (error, pushArray)=>{
-        expect(pushArray[1]).toBe('a little more text');
-        done();
-      })
+  it('should return meenie as the first text', (done) => {
+    reader(testPaths, (error, pushArray) => {
+      expect(pushArray[0]).toBe('a little more text');
+      done();
+    });
+  });
+  it('should return eenie as the third text', (done) => {
+    reader(testPaths, (error, pushArray) => {
+      expect(pushArray[2]).toBe('a little text');
+      done();
+    });
+  });
+  it('should return not null when wrong file path is put into reader', (done)=>{
+    const bollocks = ['meow', 'rawr', 'eeyah'];
+    reader(bollocks, (error, pushArray)=> {
+      expect(error).not.toBeNull();
+      done();
+    });
+  });
 });

@@ -1,10 +1,10 @@
 'use strict';
 
 class Bitmap {
-  constructor(filePath){
+  constructor(filePath) {
     this.filePath = filePath;
   }
-  parse(buffer, parsedBMP){
+  parse(buffer, parsedBMP) {
     this.type = buffer.toString('utf-8', 0, 2);
     // does not convert hex to ASCII
     this.type2 = buffer.readInt16BE(0);
@@ -27,6 +27,5 @@ class Bitmap {
   }
 
 }
-
 
 module.exports = Bitmap;

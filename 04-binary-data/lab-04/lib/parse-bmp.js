@@ -4,7 +4,7 @@ class Bitmap {
   constructor(filePath){
     this.filePath = filePath;
   }
-  parse(buffer){
+  parse(buffer, parsedBMP){
     this.type = buffer.toString('utf-8', 0, 2);
     // does not convert hex to ASCII
     this.type2 = buffer.readInt16BE(0);
@@ -21,8 +21,11 @@ class Bitmap {
     //starting point of the pixelarray
     this.pixelArrayStart = buffer.readInt32LE(10);
     //location of the colortable
-    this.colorTable = buffer.sizeOfTheDIBHeader + 14 + 12;
+    this.colorTable = this.sizeOfTheDIBHeader + 14 + 12;
+
+    parsedBMP(this);
   }
+
 }
 
 

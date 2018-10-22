@@ -37,6 +37,8 @@ console.log('Bytes Per Pixel', parsedBitmap.bitsPerPixel);
 console.log('Height', parsedBitmap.height);
 console.log('Width', parsedBitmap.width);
 console.log('starting address', parsedBitmap.startingAddress);
+parsedBitmap.colorTable = parsedBitmap.sizeOfTheDIBHeader + 14 + 12;
+console.log('colortable', parsedBitmap.colorTable);
 
 //134
 //finding the color table

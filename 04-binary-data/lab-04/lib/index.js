@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 
+
 /**
  * Bitmap -- receives a file name, used in the transformer to note the new buffer
  * @param filePath

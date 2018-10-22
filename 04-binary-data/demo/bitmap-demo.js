@@ -59,6 +59,7 @@ for (let i = 134; i < 1146; i += 4) {
 
 buffer[1096] = 0;
 /*
+//turn green
 for (let i = 134; i < 1146; i+=4) {
   buffer[i+1] = 255;
 }
@@ -80,6 +81,7 @@ console.log(buffer[1148]);
 console.log(buffer[1149]);
 */
 /*
+//pixel array
 for (let i = 1146; i < buffer.length; i+=4) {
   buffer[i] = 255;
   buffer[i+1] = 192;
@@ -88,6 +90,7 @@ for (let i = 1146; i < buffer.length; i+=4) {
 }
 */
 /*
+//pixel array
 for (let i = 1146; i < buffer.length; i+=4) {
   buffer[i] = Math.random()*255;
   buffer[i+1] = Math.random()*255;
@@ -96,6 +99,7 @@ for (let i = 1146; i < buffer.length; i+=4) {
 }
 */
 /*
+//pixel array
 for (let i = 1146; i < buffer.length; i++) {
   if (buffer[i] > 100) {
     buffer[i] = 0xFF;

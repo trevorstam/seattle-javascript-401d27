@@ -38,7 +38,7 @@ For this assignment you will be building a HTTP server.
 #### Server Module 
 The server module is responsible for creating an http server defining all route behavior and exporting an interface for starting and stoping the server. It should export an object with `start` and `stop` methods. The start and stop methods should each return a promise that resolves on success and rejects on error. 
 ###### GET /
-When a client makes a GET request to / the server should send baack html with a project description and a anchor to /cowsay.
+When a client makes a GET request to / the server should send back html with a project description and an anchor to /cowsay.
 ``` html
 <!DOCTYPE html>
 <html>
@@ -105,5 +105,6 @@ When a client makes a POST request to /api/cowsay it should send JSON that inclu
 
 
 ## Stretch Goals
-Add the ability to change the cowfile on GET /cowsay, GET /api/cowsay, and POST
+- Add the ability to change the cowfile on GET /cowsay, GET /api/cowsay, and POST
 /api/cowsay - **ex: dragon, sheep, etc**
+- Use fs module to read html stored in separate file(s)

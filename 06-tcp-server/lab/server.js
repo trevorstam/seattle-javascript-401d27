@@ -51,7 +51,7 @@ evEm.on('@all', (client, message) => {
 });
 
 evEm.on('@list', (client) => {
-  client.socket.write('ces chats sont dans la litière:\n');
+  client.socket.write('ces chats sont dans la litière:\r\n');
   userPool.forEach((user) => {
     client.socket.write(`${user.nickname}\n`);
   });
@@ -68,6 +68,8 @@ evEm.on('@nickname', (client, string) => {
 
 evEm.on('@quit', (client) => {
   client.socket.write(`Au revoir mon chat ${client.nickname}!`);
+  //I still need to end the socket (not destroy) and remove the user from the user pool.
+  // could use filter on the user pool to filter out where user's nickname is not the client nickname
 });
 
 evEm.on('default', (client) => {

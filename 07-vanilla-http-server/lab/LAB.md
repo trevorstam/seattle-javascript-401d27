@@ -30,6 +30,9 @@ Configure the root of your lab directory with the necessary files and directorie
 
 ## Feature Tasks  
 For this assignment you will be building a HTTP server. 
+
+## Modularize your code by area of responsibility
+### E.g.
 #### Body Parser Module
 #### URL Parser Module
 #### Server Module 

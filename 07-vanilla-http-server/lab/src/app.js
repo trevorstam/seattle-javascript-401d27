@@ -56,11 +56,11 @@ const requestHandler = (req, res) => {
         res.setHeader('Content-Type', 'text/json');
         res.statusCode = 200;
         res.statusMessage = 'OK';
-        const cowTalk = cowsay.say({
-          content: `I ain't COWtowing fo nobody!`,
-        });
+        // const cowTalk = cowsay.say({
+        //   content: `I ain't COWtowing fo nobody!`,
+        // });
         //probably need to stringify cowTalk, but not sure
-        res.write(JSON.stringify(req.body));
+        res.write(`{"content": "${req.body.text}" }`);
         res.end();
         return;
       } else {

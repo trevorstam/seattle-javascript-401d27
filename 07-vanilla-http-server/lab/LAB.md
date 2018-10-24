@@ -77,7 +77,7 @@ When a client makes a GET request to /cowsay?text={message} the server should pa
 </html>
 ```
 
-###### GET /api/cowsay?text={message}
+###### POST /api/cowsay
 When a client makes a POST request to /api/cowsay it should send JSON that includes `{"text": "<message>"}`. The server should respond with a JSON body `{"content": "<cowsay cow>"}`.  
 
 A response for a valid Requests should have a status code of 200 and the JSON body   

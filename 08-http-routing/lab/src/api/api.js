@@ -35,7 +35,7 @@ router.delete('/api/v1/notes', (req, res) => {
   res.statusMessage = 'OK';
   let identity = req.query.id || '';
   res.write(`ID: ${identity} deleted`);
-
+  res.end();
 });
 
 module.exports = {};

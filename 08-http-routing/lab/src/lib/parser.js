@@ -12,7 +12,7 @@ module.exports = (req) => {
     req.parsed = url.parse(req.url);
 
     req.query = queryString.parse(req.parsed.query);
-
+    //using this for reference
     req.query = {
       id: 12345,
       name: 'John',

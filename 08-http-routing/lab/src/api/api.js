@@ -23,8 +23,9 @@ router.put('/api/v1/notes', (req, res) => {
   res.statusCode = 200;
   res.statusMessage = 'OK';
 
-  let dataPut;
-
+  let dataPut = {
+    text: req.body.text,
+  };
   res.write(JSON.stringify(dataPut));
   res.end();
 });
@@ -32,6 +33,8 @@ router.put('/api/v1/notes', (req, res) => {
 router.delete('/api/v1/notes', (req, res) => {
   res.statusCode = 200;
   res.statusMessage = 'OK';
+  let identity = req.query.id || '';
+  res.write(`ID: ${identity} deleted`);
 
 });
 

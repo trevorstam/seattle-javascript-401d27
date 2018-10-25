@@ -6,7 +6,7 @@ const api = require('./api/api');
 
 let isRunning = false;
 
-const app = http.createServer(router.router);
+const app = http.createServer(router.route);
 
 module.exports = {
   start: (port) => {

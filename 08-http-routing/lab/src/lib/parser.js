@@ -13,6 +13,11 @@ module.exports = (req) => {
 
     req.query = queryString.parse(req.parsed.query);
 
+    req.query = {
+      id: 12345,
+      name: 'John',
+    };
+
     if (!req.method.match(/POST|PUT|PATCH/)) {
       resolve(req);
     }

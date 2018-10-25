@@ -10,7 +10,7 @@
   * link to your pull request
   
 ## Configuration 
-Configure the root of your repository with the following files and directories. Thoughfully name and organize any aditional configuration or module files.
+Configure the root of your repository with the necessary files and directories. Thoughfully name and organize any aditional configuration or module files. E.g.
 * **README.md** - contains documentation
 * **.env** - contains env variables (should be git ignored)
 * **.gitignore** - contains a [robust](http://gitignore.io) `.gitignore` file 

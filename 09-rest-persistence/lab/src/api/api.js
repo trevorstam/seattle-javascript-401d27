@@ -1,41 +1,64 @@
 'use strict';
 const router = require('../lib/router');
+const Notes = require('../models/notes');
 
-router.get('/api/v1/notes', (req, res) => {
+/**
+ * Simple method to send a JSON response (all of the API methods will use this)
+ * @param res
+ * @param data
+ */
+
+let sendJSON = ((res, data) => {
   res.statusCode = 200;
   res.statusMessage = 'OK';
-  let identity = req.query.id || '';
-  res.write(`ID: ${identity}`);
+  res.setHeader('Content-Type', 'application/json');
+  res.write(JSON.stringify(data));
   res.end();
+});
+
+let serverError = ((res, err) => {
+  let error = {
+    error: err,
+  };
+  res.statusCode = 500;
+  res.statusMessage = 'Server Error';
+  res.setHeader('Content-Type', 'application/json');
+  res.write(JSON.stringify(error));
+  res.end();
+});
+
+router.get('/api/v1/notes', (req, res) => {
+  if (req.query.id) {
+    Notes.findOne(req.query.id)
+      .then(data => sendJSON(res, data))
+      .catch(err => serverError(res, err));
+  } else {
+    Notes.fetchAll()
+      .then(data => sendJSON(res, data))
+      .catch(err => serverError(res, err));
+  }
 });
 
 router.post('/api/v1/notes', (req, res) => {
-  res.statusCode = 200;
-  res.statusMessage = 'OK';
-  let dataPost = {
-    text: req.body.text,
-  };
-  res.write(JSON.stringify(dataPost));
-  res.end();
+  let record = new Notes(req.body);
+  record.save()
+    .then((data) => sendJSON(res, data))
+    .catch(console.error);
 });
 
-router.put('/api/v1/notes', (req, res) => {
-  res.statusCode = 200;
-  res.statusMessage = 'OK';
-
-  let dataPut = {
-    text: req.body.text,
-  };
-  res.write(JSON.stringify(dataPut));
-  res.end();
-});
 
 router.delete('/api/v1/notes', (req, res) => {
-  res.statusCode = 200;
-  res.statusMessage = 'OK';
-  let identity = req.query.id || '';
-  res.write(`ID: ${identity} deleted`);
-  res.end();
+  if (req.query.id) {
+    Notes.deleteOne(req.query.id)
+      .then(success => {
+        let data = {
+          id: req.query.id.setHeader,
+          deleted: success,
+        };
+        sendJSON(res, data);
+      })
+      .catch(console.error);
+  }
 });
 
 module.exports = {};

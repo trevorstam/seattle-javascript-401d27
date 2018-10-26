@@ -22,6 +22,7 @@ storage.getAll = () => {
       if (err) {
         reject(err);
       }
+      console.log(files);
       let promises = [];
 
       while (files.length) {

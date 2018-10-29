@@ -5,6 +5,16 @@ Trevor Stam
 #### Course:
 401 Javascript @ Code Fellows
 
+### How to Use:
+- Start server.js on node in your terminal as such: node server.js
+- To connect to chatroom: open putty, add your ip-address, your port and finally choose telnet option
+- To write a message, type into putty window
+- To change nickname, type @nickname and your new nickname
+- To send a message to everybody, type @all followed by your message
+- To see a list of all the participants in the chat. type @list
+- To dm a member of the chatroom, type @dm plus the name and the message
+- To leave chatroom, type @quit
+
 ### Feature Tasks:
 For this assignment, you will be building a TCP chatroom. Clients should be able to connect to the chatroom through the use of telnet. Clients should also be able to run special commands to exit the chatroom, list all users, reset their nickname, and send direct messages. You may add as many features to this application as you would like. Do not use any third party libraries and testing is not required.
 

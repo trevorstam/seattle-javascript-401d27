@@ -21,8 +21,8 @@ const userPool = [];
 server.on('connection', (socket) => {
   const client = new Client(socket);
   userPool.push(client);
-  client.socket.write('Entrez le chat!\n');
-  client.socket.write('Parlez avec autres chats!\n');
+  client.socket.write('Entrez le chat!\r\n');
+  client.socket.write('Parlez avec autres chats!\r\n');
 
   socket.on('data', (data) => {
     const command = data.toString().split(' ').shift().trim();
@@ -63,17 +63,18 @@ evEm.on('@dm', (sender, receiver, message) => { //still working on this one
 
 evEm.on('@nickname', (client, string) => {
   client.nickname = string;
-  client.socket.write(`Your nickname has been changed to ${string}`);
+  client.socket.write(`Your nickname has been changed to ${string}\r\n`);
 });
 
 evEm.on('@quit', (client) => {
-  client.socket.write(`Au revoir mon chat ${client.nickname}!`);
-  //I still need to end the socket (not destroy) and remove the user from the user pool.
-  // could use filter on the user pool to filter out where user's nickname is not the client nickname
+  userPool.filter((user) =>
+    user.nickname !== client.nickname
+  );
+  client.socket.end();
 });
 
 evEm.on('default', (client) => {
-  client.socket.write('Please start all commands with @\n');
+  client.socket.write('Please start all commands with @\r\n');
 });
 
 //6 server listening

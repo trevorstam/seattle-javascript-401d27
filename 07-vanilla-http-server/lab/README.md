@@ -9,6 +9,9 @@ Trevor Stam
 ### Feature tasks
 Build a HTTP server. Test the routes with Cowsay API
 
+### Test
+Add routes into Postman. Type in content in JSON format, then send the request(get or post) and check output
+
 ### Modules
 URL Parser, Body Parser, Server
 

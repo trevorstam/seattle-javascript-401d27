@@ -47,25 +47,28 @@ for (let i = 800; i < 1146; i++) {
   console.log(buffer[i]);
 }
 */
-for (let i = 134; i < 1146; i += 4) {
-    if (buffer[i] === 198 && buffer[i + 1] === 227 && buffer[i + 2] === 250) {
-        buffer[i] = 0;
-        buffer[i + 1] = 0;
-        buffer[i + 2] = 255;
-    }
-    if (buffer[i + 2] === 250) {
-        console.log('red', buffer[i + 2]);
-        console.log('red index', i + 2);
-    }
-}
+// for (let i = 134; i < 1146; i += 4) {
+//     if (buffer[i] === 198 && buffer[i + 1] === 227 && buffer[i + 2] === 250) {
+//         buffer[i] = 0;
+//         buffer[i + 1] = 0;
+//         buffer[i + 2] = 255;
+//     }
+//     if (buffer[i + 2] === 250) {
+//         console.log('red', buffer[i + 2]);
+//         console.log('red index', i + 2);
+//     }
+// }
 
 buffer[1096] = 0;
-/*
+
 //turn green
-for (let i = 134; i < 1146; i+=4) {
-  buffer[i+1] = 255;
+// for (let i = 134; i < 1146; i += 4) {
+//   buffer[i + 1] = 255;
+// }
+
+for (let i = 134; i < 1146; i += 4) {
+  buffer[i + 1] = 0;
 }
-*/
 
 
 
@@ -82,32 +85,32 @@ console.log(buffer[1147]);
 console.log(buffer[1148]);
 console.log(buffer[1149]);
 */
-/*
+
 //pixel array
-for (let i = 1146; i < buffer.length; i+=4) {
-  buffer[i] = 255;
-  buffer[i+1] = 192;
-  buffer[i+2] = 128;
-  buffer[i+3] = 64;
-}
-*/
-/*
+// for (let i = 1146; i < buffer.length; i += 4) {
+//   buffer[i] = 255;
+//   buffer[i + 1] = 192;
+//   buffer[i + 2] = 128;
+//   buffer[i + 3] = 64;
+// }
+
+
 //pixel array
-for (let i = 1146; i < buffer.length; i+=4) {
-  buffer[i] = Math.random()*255;
-  buffer[i+1] = Math.random()*255;
-  buffer[i+2] = Math.random()*255;
-  buffer[i+3] = Math.random()*255;
-}
-*/
-/*
+// for (let i = 1146; i < buffer.length; i += 4) {
+//   buffer[i] = Math.random() * 255;
+//   buffer[i + 1] = Math.random() * 255;
+//   buffer[i + 2] = Math.random() * 255;
+//   buffer[i + 3] = Math.random() * 255;
+// }
+
+
 //pixel array
-for (let i = 1146; i < buffer.length; i++) {
-  if (buffer[i] > 100) {
-    buffer[i] = 0xFF;
-  }
-}
-*/
+// for (let i = 1146; i < buffer.length; i++) {
+//   if (buffer[i] > 100) {
+//     buffer[i] = 0xFF;
+//   }
+// }
+
 /*
 for (let i = 1212747008; i < buffer.length; i+=4) {
   buffer[i] = Math.random()*255;

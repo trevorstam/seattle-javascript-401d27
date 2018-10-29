@@ -1,0 +1,19 @@
+{
+  "name": "06-tcp-server",
+  "version": "1.0.0",
+  "description": "![cf](https://i.imgur.com/7v5ASc8.png) Lab 06: TCP Server ======",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^6.1.0",
+    "eslint": "^5.7.0",
+    "events": "^3.0.0",
+    "net": "^1.0.2",
+    "uuid": "^3.3.2"
+  }
+}

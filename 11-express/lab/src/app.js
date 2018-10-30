@@ -1,5 +1,6 @@
 import express from 'express';
 // import albumRouter from './routes/albums.js';
+import usStates from './models/us-states';
 
 const app = express();
 
@@ -8,7 +9,7 @@ app.use(express.urlencoded({
   extended: true,
 }));
 
-// app.use(albumRouter);
+app.use(usStates);
 
 
 module.exports = {

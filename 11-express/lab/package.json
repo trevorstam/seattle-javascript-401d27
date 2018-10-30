@@ -1,11 +1,13 @@
 {
   "name": "lab",
   "version": "1.0.0",
-  "description": "",
+  "description": "![cf](http://i.imgur.com/7v5ASc8.png) 11: Express  & Babel ===",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",
-    "lint": "eslint"
+    "lint": "eslint",
+    "start": "node index.js",
+    "watch": "nodemon index.js"
   },
   "keywords": [],
   "author": "",

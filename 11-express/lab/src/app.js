@@ -9,7 +9,7 @@ app.use(express.urlencoded({
 }));
 
 // app.use(albumRouter);
-export const version = '1.0';
+
 
 module.exports = {
   app,

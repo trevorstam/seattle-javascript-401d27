@@ -32,6 +32,8 @@ app.use((err, req, res, next) => {
 let isRunning = false;
 
 module.exports = {
+  server: app, 
+
   start: (port) => {
     if(! isRunning) {
       app.listen(port, (err) => {

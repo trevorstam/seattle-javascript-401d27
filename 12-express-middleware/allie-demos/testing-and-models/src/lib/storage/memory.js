@@ -1,10 +1,14 @@
 'use strict';
 
-
 const storage = {};
 
 // We create a simple object to store our notes in memory
-const database = {};
+let database = {};
+
+// Clear the storage
+storage.clear = () => {
+  database = {};
+};
 
 // This use a straight "Promise.resolve"
 // When you do this, you don't have to do the whole promise wiring.

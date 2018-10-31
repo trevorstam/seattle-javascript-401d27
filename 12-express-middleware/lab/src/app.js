@@ -7,8 +7,8 @@ import express from 'express';
 import cors from 'cors';
 
 import router from './api/api.js';
-// import errorHandler from './middleware/error.js';
-// import notFound from './middleware/404.js';
+import errorHandler from './middleware/error.js';
+import notFound from './middleware/404.js';
 
 let app = express();
 
@@ -24,10 +24,10 @@ app.use(express.urlencoded({
 app.use(router);
 
 // Our 404 Handling Middleware
-// app.use(notFound);
+app.use(notFound);
 
 // Our Error Handling Middleware
-// app.use(errorHandler);
+app.use(errorHandler);
 
 // Flag to know if we are up and going
 let isRunning = false;

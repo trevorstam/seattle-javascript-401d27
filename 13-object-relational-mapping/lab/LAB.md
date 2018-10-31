@@ -48,3 +48,12 @@ Follow the instructions in the "Lab Submission Instructions" document in the cou
  * `PUT` - test 404, responds with 'not found' for valid requests made with an id that was not found
  * `POST` - test 400, responds with 'bad request' if no request body was provided
  * `POST` - test 200, returns a resource for requests made with a valid body
+
+### Stretch Tasks
+* Write version of each test with async/await vs. with promises
+* Modify your schema to have more complex rules
+	* Have some fields be required
+	* Have some fields be limited to certain input
+		* e.g. a number between 1-100, only certain characters, etc.
+	* Log out when a model saved via a `pre save` hook
+		* Check the docs on that one ;)

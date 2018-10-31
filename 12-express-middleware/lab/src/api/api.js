@@ -8,9 +8,10 @@ const router = express.Router();
 
 //
 import usStates from '../models/us-states';
-// import modelMiddleware from '../middleware/models.js';
 
-// router.use(modelMiddleware);
+import modelMiddleware from '../middleware/models';
+
+router.use(modelMiddleware);
 
 //
 let sendJSON = (res, data) => {

@@ -60,9 +60,11 @@ router.post('/api/v1/states', (req, res) => {
 });
 
 router.put('/api/v1/states', (req, res) => {
-    usStates.updateOne(req.body);
-  }).then(data => sendJSON(res, data))
-  .catch(console.error);
+  let newRecord = usStates.updateOne(req.body);
+  newRecord.save()
+    .then(data => sendJSON(res, data))
+    .catch(console.error);
+});
 
 //
 export default router;

@@ -3,7 +3,7 @@
 // Read and require every file in the "models" directory
 // This allows us to dynamically create and use models with ONE API.
 import requireAll from 'require-dir';
-const models = requireAll('../models');
+const models = requireAll(module, '../models');
 /*
   models: {
     'notes': {default: Function()...},

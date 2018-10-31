@@ -35,14 +35,14 @@ let serverError = (res, err) => {
 };
 
 //
-router.get('/api/v1/states', (req, res) => {
+router.get('/api/v1/:model', (req, res) => {
   usStates.fetchAll()
     .then(data => sendJSON(res, data))
     .catch(err => serverError(res, err));
 });
 
 //
-router.get('/api/v1/states/:id', (req, res) => {
+router.get('/api/v1/:model/:id', (req, res) => {
   if (req.params.id) {
     usStates.findOne(req.params.id)
       .then(data => sendJSON(res, data))
@@ -53,15 +53,15 @@ router.get('/api/v1/states/:id', (req, res) => {
 });
 
 //
-router.post('/api/v1/states', (req, res) => {
+router.post('/api/v1/:model', (req, res) => {
   let record = new usStates(req.body);
   record.save()
     .then(data => sendJSON(res, data))
     .catch(console.error);
 });
 
-router.put('/api/v1/states', (req, res) => {
-  let newRecord = usStates.updateOne(req.body);
+router.put('/api/v1/:model/:id', (req, res) => {
+  let newRecord = usStates.updateOne(req.params.id, req.body);
   newRecord.save()
     .then(data => sendJSON(res, data))
     .catch(console.error);

@@ -27,7 +27,7 @@ let app = express();
  * @type {{origin: string}}
  */
 let corsOptions = {
-  origin: 'http://example.com'
+  origin: 'http://example.com',
 };
 app.use(cors(corsOptions));
 
@@ -36,7 +36,9 @@ app.use(morgan('dev'));
 
 // Built-In Express Body Parser for raw JSON and for FORM posts
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({
+  extended: true,
+}));
 
 // Our API
 app.use(router);
@@ -54,20 +56,21 @@ let isRunning = false;
 // A: So that we can start and stop the server while we are testing the routes
 module.exports = {
   start: (port) => {
-    if(! isRunning) {
+    if (!isRunning) {
       app.listen(port, (err) => {
-        if(err) { throw err; }
+        if (err) {
+          throw err;
+        }
         isRunning = true;
         debug('Server is up on port', port);
       });
-    }
-    else {
+    } else {
       debug('Server is already running');
     }
   },
 
   stop: () => {
-    app.close( () => {
+    app.close(() => {
       isRunning = false;
       console.log('Server has been stopped');
     });

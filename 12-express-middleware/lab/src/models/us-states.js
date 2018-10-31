@@ -27,7 +27,7 @@ class UsStates {
     return storage.get(id);
   }
 
-  static updateOne(criteria) {
+  static updateOne(criteria) { //you can pass in anything in here
     return storage.update(this);
   }
 

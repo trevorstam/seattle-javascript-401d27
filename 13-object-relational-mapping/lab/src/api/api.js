@@ -26,6 +26,13 @@ let serverError = (res, err) => {
   res.end();
 };
 
+//find for get
+//findbyid for second get
+//findonebyidanddelete
+//findbyidandupdate
+//save for post
+
+
 // router.get('/api/v1/:model', (req, res) => {
 //   usStates.fetchAll()
 //     .then(data => sendJSON(res, data))

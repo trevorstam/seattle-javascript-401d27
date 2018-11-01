@@ -6,16 +6,11 @@
 * Work in a fork of this repository
 * Work in a branch on your fork
 * Create a PR to your master from your working branch.
-* Ensure that your repository/branch is connected to travis-ci.com
-* Ensure that your repository/branch is connected to a dyno at heroku.com
-* Heroku and Travis should pick you up and deploy
 * Submit on canvas:
   * a question and observation
   * how long you spent
   * link to your pull request
-  * link to your build at travis-ci URL
-  * Heroku Server URL
-
+  
 ## Configuration 
 Configure the root of your repository with the following files and directories. Thoughfully name and organize any aditional configuration or module files.
 * **README.md** - contains documentation
@@ -23,7 +18,6 @@ Configure the root of your repository with the following files and directories. 
 * **.gitignore** - contains a [robust](http://gitignore.io) `.gitignore` file 
 * **.eslintrc** - contains the course linter configuratoin
 * **.eslintignore** - contains the course linter ignore configuration
-* **.travis.yml** - contains the course linter ignore configuration
 * **package.json** - contains npm package config
   * create a `lint` script for running eslint (eslint **/*.js)
   * create a `test` script for running tests
@@ -40,10 +34,12 @@ Configure the root of your repository with the following files and directories. 
 * students will be able to use the `populate` method to allow for resource query population
 
 ## Requirements
+* Choose resources that are different from demo
+* Define relationship between the two resources
 
 #### Feature Tasks
   * continue working on the `express` and `mongoDB` REST API that you started yesterday
   * include an additional resource that contains a "relationship" to the single resource that has already been created
   * create `GET`, `POST`, `PUT`, and `DELETE` routes for your newly added resource
   * test your application to ensure that it meets the standard criteria of a working **full CRUD** REST API
-  * use `populate` in the `get()` route logic your  `/api/new-resource-name/:id` route to populate the associated property used to house related resources **(ex: `List.findById(req.params.id).populate('notes')`)**
+  * use `populate` in your GET routes to expand the related resource.

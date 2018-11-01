@@ -15,13 +15,13 @@ describe('Lizard <-> Terrarium Relationship' , () => {
 
   it('should be related - promises', (done) => {
     
-    Terrarium.create({location:'Narnia'}).then(t => {
-      Lizard.create({name:'Larry', terrarium:t}).then((lizard) => {
+    Terrarium.create({location:'Narnia'}).then(ter => {
+      Lizard.create({name:'Larry', terrarium:ter}).then((lizard) => {
 
-        expect(lizard.terrarium._id).toBe(t._id);
-    
+        expect(lizard.terrarium._id).toBe(ter._id);
+
         expect(lizard.populate('terrarium').terrarium.location).toBe('Narnia');
-        
+
         done();
        
       });
@@ -32,11 +32,14 @@ describe('Lizard <-> Terrarium Relationship' , () => {
     
     const ter = await Terrarium.create({location:'Narnia'});
     
-    const lizard = await Lizard.create({name:'Larry', terrarium:ter});
+    const lizard = await Lizard.create({name:'Larry', terrarium:ter._id});
       
     expect(lizard.terrarium._id).toBe(ter._id);
-          
-    expect(lizard.populate('terrarium').terrarium.location).toBe('Narnia');
+
+    const foundLizard = await Lizard.findById(lizard._id)
+      .populate('terrarium');
+
+    expect(foundLizard.terrarium.location).toBe('Narnia');
   
   });
 

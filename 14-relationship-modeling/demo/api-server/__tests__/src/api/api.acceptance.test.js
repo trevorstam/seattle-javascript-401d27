@@ -1,37 +1,36 @@
-'use strict';
+const { app } = require('../../../src/app.js');
+import supergoose, { startDB, stopDB } from '../../../src/supergoose';
 
-require('babel-register');
-const superagent = require('superagent');
-const app = require('../../../src/app.js');
+beforeAll(startDB);
+afterAll(stopDB);
+
+const mockRequest = supergoose(app);
+const playersUrl = '/api/v1/players';
+const teamsUrl = '/api/v1/teams';
 
 describe('API', () => {
 
-  const PORT = 8888;
-  beforeAll( () => {
-    app.start(PORT);
-  });
-  afterAll( () => {
-    app.stop();
-  });
-
-  // Note that these will actually be using the mocked models
-  // from the mock version of require-dir.  IOW .. no need to spin up
-  // a mongo server to run these tests. (we don't want to test mongo anyway!)
-
   it('gets a 200 response on a good model', () => {
-    return superagent.get('http://localhost:8888/api/v1/bar')
+    return mockRequest.get(playersUrl)
       .then(response => {
         expect(response.statusCode).toEqual(200);
       })
       .catch(console.err);
   });
 
-  it('gets a 500 response on an invalid model', () => {
-    return superagent.get('http://localhost:8888/api/v1/foobar')
-      .then(console.log)
-      .catch(response => {
-        expect(response.status).toEqual(500);
-      });
+  it('gets a 200 response on a good model', () => {
+    return mockRequest.get(teamsUrl)
+      .then(response => {
+        expect(response.statusCode).toEqual(200);
+      })
+      .catch(console.err);
+  });
+
+  it('gets a 500 response on an invalid model', async () => {
+   
+    const response = await mockRequest.get('/api/v1/burgers');
+    expect(response.status).toBe(500);
+  
   });
 
 });

@@ -2,7 +2,6 @@
 
 // 3rd Party Libraries
 import express from 'express';
-import morgan from 'morgan';
 import cors from 'cors';
 
 // Custom Libraries
@@ -16,7 +15,6 @@ let app = express();
 
 // App level middleware
 app.use(cors());
-app.use(morgan('dev'));
 app.use(express.json());
 
 // Our API Routes
@@ -29,6 +27,7 @@ app.use(errorHandler);
 let server = false;
 
 module.exports = {
+  app,
   start: (port) => {
     if(! server) {
       server = app.listen(port, (err) => {

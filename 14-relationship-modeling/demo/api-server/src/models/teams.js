@@ -4,12 +4,7 @@ const mongoose = require('mongoose');
 
 const teamSchema = mongoose.Schema({
   name: {type:String, require:true},
-  players: [ {type:mongoose.Schema.Types.ObjectId, ref:'players'}],
-});
-
-teamSchema.pre('findOne', function(next) {
-  this.populate('players');
-  next();
+  mascot: {type:String},
 });
 
 export default mongoose.model('teams', teamSchema);

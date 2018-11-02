@@ -11,6 +11,7 @@ let mongoServer;
 
 /** 
  * @server 
+ * @returns function that expects an express server
  */
 export default (server) => supertest(server);
 

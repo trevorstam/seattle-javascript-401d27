@@ -4,7 +4,6 @@
 
 // export your model
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
 
 const statesSchema = mongoose.Schema({
   name: String,

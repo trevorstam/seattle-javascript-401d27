@@ -16,7 +16,7 @@ app.use(express.urlencoded({
   extended: true,
 }));
 
-// app.use(apiRouter); //it breaks the connection with the server here
+app.use(apiRouter); //it breaks the connection with the server here
 
 app.use(notFound);
 app.use(errorHandler);

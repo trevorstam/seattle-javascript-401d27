@@ -15,49 +15,33 @@ let sendJSON = (data, response) => {
   response.end();
 };
 
-let serverError = (res, err) => {
-  let error = {
-    error: err,
-  };
-  res.statusCode = 500;
-  res.statusMessage = 'Server Error';
-  res.setHeader('Content-Type', 'application/json');
-  res.write(JSON.stringify(error));
-  res.end();
-};
+
 
 //find for get
 //findbyid for second get
 //findonebyidanddelete
 //findbyidandupdate
 //save for post
+router.get('/api/v1/:model', (req, res, next) => {
+  usStates.find()
+    .then(result => {
+      sendJSON(result, res);
+    })
+    .catch(next);
+});
 
+router.post('/api/v1/:model', (req, res, next) => {
+  usStates.create(req.body).save()
+    .then(result => sendJSON(result, res))
+    .catch(next);
+});
 
-// router.get('/api/v1/:model', (req, res) => {
-//   usStates.fetchAll()
-//     .then(data => sendJSON(res, data))
-//     .catch(err => serverError(res, err));
-// });
+router.delete('/api/v1/:model/:id', (req, res, next) => {
+  usStates.findByIdAndRemove(req.param)
+    .then(result => sendJSON(result, res))
+    .catch(next);
+});
 
-// //
-// router.get('/api/v1/:model/:id', (req, res) => {
-//   if (req.params.id) {
-//     usStates.findOne(req.params.id)
-//       .then(data => sendJSON(res, data))
-//       .catch(err => serverError(res, err));
-//   } else {
-//     serverError(res, 'Record Not Found');
-//   }
-// });
+// router.put()
 
-// //
-// router.post('/api/v1/:model', (req, res) => {
-//   let record = new usStates(req.body);
-//   record.save()
-//     .then(data => sendJSON(res, data))
-//     .catch(console.error);
-// });
-
-// router.put('/api/v1/:model/:id', (req, res) => {
-//   req.model.updateOne(req.params.id, req.body)
-// })
+export default router;

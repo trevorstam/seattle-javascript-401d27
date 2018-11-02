@@ -39,7 +39,7 @@ router.get('/api/v1/states/:id', (req, res, next) => {
 });
 
 router.post('/api/v1/states', (req, res, next) => {
-  usStates.create(req.body).save()
+  usStates.create(req.body)
     .then(result => sendJSON(result, res))
     .catch(next);
 });
@@ -53,7 +53,9 @@ router.delete('/api/v1/states/:id', (req, res, next) => {
 router.put('/api/v1/states/:id', (req, res, next) => {
   usStates.findByIdAndUpdate({
       _id: req.params.id,
-    }, req.body)
+    }, req.body, {
+      new: true,
+    })
     .then(result => sendJSON(result, res))
     .catch(next);
 });
@@ -61,7 +63,9 @@ router.put('/api/v1/states/:id', (req, res, next) => {
 router.patch('/api/v1/states/:id', (req, res, next) => {
   usStates.findOneAndUpdate({
       _id: req.params.id,
-    }, req.body)
+    }, req.body, {
+      new: true,
+    })
     .then(result => sendJSON(result, res))
     .catch(next);
 });

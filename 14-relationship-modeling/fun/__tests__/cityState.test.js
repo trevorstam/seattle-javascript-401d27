@@ -63,15 +63,41 @@ describe('City <-> State', () => {
 
     // now API route simulation begins /state/:id
 
-    const washington = await State.findOne({_id : id});
+    // wait, where's the populate?????
 
-    const citiesInWashington = await City.find({state : id});
+    const state = await State.findOne({_id : id});
 
-    washington.cities = citiesInWashington;
+    const citiesInState = await City.find({state : id});
 
-    expect(washington.cities[0].name).toBe('Seattle');
+    state.cities = citiesInState;
 
-    expect(washington.cities[1].name).toBe('Bothell');
+    expect(state.cities[0].name).toBe('Seattle');
+
+    expect(state.cities[1].name).toBe('Bothell');
+
+  });
+
+  it('get state of city', async () => {
+
+    // set up (imagine already done)
+    const wa = await State.create({ name : 'Washington' });
+
+    const city = await City.create({ name : 'Seattle', state: wa._id });
+
+    const req = {};
+
+    req.params = {};
+
+    req.params.id = city._id;
+
+    // GET /city/:id
+    const cityFind = City.findById(req.params.id);
+    
+    const foundCity = await cityFind.populate('state');
+
+    expect(foundCity.state.name).toBe('Washington');
+
+
 
   });
 

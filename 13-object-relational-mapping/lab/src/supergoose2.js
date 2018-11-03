@@ -2,19 +2,23 @@ import mongoose from 'mongoose';
 import MongoMemoryServer from 'mongodb-memory-server';
 import supertest from 'supertest';
 
-let mongoServer;
+let MongoServer;
 
-export default (server) => supertest(server);
+export default (server) => {
+  supertest(server);
+};
 
 export const startDB = async () => {
-  mongoServer = new MongoMemoryServer();
-  const mongoUri = await mongoServer.getConnectionString();
+  MongoServer = new MongoMemoryServer();
+  const mongoUri = await MongoServer.getConnectionString();
   await mongoose.connect(mongoUri, (err) => {
-    if (err) console.error(err);
+    if (err) {
+      console.error(err);
+    }
   });
 };
 
 export const stopDB = () => {
   mongoose.disconnect();
-  mongoServer.stop();
+  MongoServer.stop();
 };

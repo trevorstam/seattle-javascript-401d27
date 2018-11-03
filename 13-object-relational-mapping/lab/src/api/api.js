@@ -15,6 +15,14 @@ let sendJSON = (data, response) => {
   response.end();
 };
 
+let badRequest = (data, response) => {
+  response.statusCode = 400;
+  response.statusMessage = 'bad request';
+  response.setHeader('Content-Type', 'application/json');
+  response.write(JSON.stringify(data));
+  response.end();
+};
+
 //find for get
 //findbyid for second get
 //findonebyidanddelete

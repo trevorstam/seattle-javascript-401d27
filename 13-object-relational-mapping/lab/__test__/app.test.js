@@ -26,10 +26,7 @@ beforeEach(async () => {
 describe('testing routes of the api server', () => {
   describe('testing the post methods', () => {
     it('should respond with a 200 upon valid post request', async () => {
-      // fail(supergoose);
       const response = await mockRequest.post(url).send(cali);
-      // console.log('response', response);
-
       expect(response.status).toBe(200);
     });
 
@@ -52,12 +49,32 @@ describe('testing routes of the api server', () => {
     });
     it('should get a 404 upon invalid get request', async () => {
       const response = await mockRequest.get('/api/v1/bollocks');
-      console.log(response.status);
       expect(response.status).toBe(404);
     });
   });
   describe('testing the put methods', () => {
+    it('should get a 200 response upon a valid put request', async () => {
+      const modify = {
+        name: 'Golden State',
+      };
+      const response = await mockRequest.post(url).send(cali);
+      const id = response.body._id;
 
-  })
+      const putRequest = await mockRequest.put(`${url}/${id}`).send(modify);
+      expect(putRequest.status).toBe(200);
+
+    });
+    it('should get a 404 response upon invalid put request', async () => {
+      const response = await mockRequest.put('/api/v1/bollocks');
+      expect(response.status).toBe(404);
+    });
+    it('should get a 400 response when a nothing is passed into the put request', async () => {
+      const response = await mockRequest.post(url).send(cali);
+      const id = response.body._id;
+      const emptyPut = await mockRequest.put(`${url}/${id}`).send();
+      console.log(emptyPut.status);
+      expect(emptyPut.status).toBe(400);
+    });
+  });
 
 });

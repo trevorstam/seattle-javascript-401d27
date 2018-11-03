@@ -15,14 +15,6 @@ let sendJSON = (data, response) => {
   response.end();
 };
 
-let badRequest = (data, response) => {
-  response.statusCode = 400;
-  response.statusMessage = 'bad request';
-  response.setHeader('Content-Type', 'application/json');
-  response.write(JSON.stringify(data));
-  response.end();
-};
-
 //find for get
 //findbyid for second get
 //findonebyidanddelete
@@ -47,9 +39,17 @@ router.get('/api/v1/states/:id', (req, res, next) => {
 });
 
 router.post('/api/v1/states', (req, res, next) => {
-  usStates.create(req.body)
-    .then(result => sendJSON(result, res))
-    .catch(next);
+  if (Object.keys(req.body).length === 0) {
+    res.statusCode = 400;
+    res.statusMessage = 'bad request';
+    res.setHeader('Content-Type', 'application/json');
+    res.end();
+  } else {
+    usStates.create(req.body)
+      .then(result => sendJSON(result, res))
+      .catch(next);
+  }
+
 });
 
 router.delete('/api/v1/states/:id', (req, res, next) => {
@@ -59,13 +59,21 @@ router.delete('/api/v1/states/:id', (req, res, next) => {
 });
 
 router.put('/api/v1/states/:id', (req, res, next) => {
-  usStates.findByIdAndUpdate({
-      _id: req.params.id,
-    }, req.body, {
-      new: true,
-    })
-    .then(result => sendJSON(result, res))
-    .catch(next);
+  if (Object.keys(req.body).length === 0) {
+    res.statusCode = 400;
+    res.statusMessage = 'bad request';
+    res.setHeader('Content-Type', 'application/json');
+    res.end();
+  } else {
+    usStates.findByIdAndUpdate({
+        _id: req.params.id,
+      }, req.body, {
+        new: true,
+      })
+      .then(result => sendJSON(result, res))
+      .catch(next);
+  }
+
 });
 
 router.patch('/api/v1/states/:id', (req, res, next) => {

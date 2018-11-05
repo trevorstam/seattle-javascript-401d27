@@ -2,7 +2,8 @@
 import express from 'express';
 
 //import the model from the models folder
-import usStates from '../models/us-states';
+import usState from '../models/us-state';
+import city from '../models/city';
 
 
 const router = express.Router();
@@ -21,7 +22,7 @@ let sendJSON = (data, response) => {
 //findbyidandupdate
 //save for post
 router.get('/api/v1/states', (req, res, next) => {
-  usStates.find({})
+  usState.find({})
     .then(result => {
       sendJSON(result, res);
     })
@@ -29,7 +30,7 @@ router.get('/api/v1/states', (req, res, next) => {
 });
 
 router.get('/api/v1/states/:id', (req, res, next) => {
-  usStates.findOne({
+  usState.findOne({
       _id: req.params.id,
     })
     .then(result => {
@@ -45,7 +46,7 @@ router.post('/api/v1/states', (req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
     res.end();
   } else {
-    usStates.create(req.body)
+    usState.create(req.body)
       .then(result => sendJSON(result, res))
       .catch(next);
   }
@@ -53,7 +54,7 @@ router.post('/api/v1/states', (req, res, next) => {
 });
 
 router.delete('/api/v1/states/:id', (req, res, next) => {
-  usStates.findByIdAndRemove(req.params.id)
+  usState.findByIdAndRemove(req.params.id)
     .then(result => sendJSON(result, res))
     .catch(next);
 });
@@ -65,7 +66,7 @@ router.put('/api/v1/states/:id', (req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
     res.end();
   } else {
-    usStates.findByIdAndUpdate({
+    usState.findByIdAndUpdate({
         _id: req.params.id,
       }, req.body, {
         new: true,
@@ -77,7 +78,7 @@ router.put('/api/v1/states/:id', (req, res, next) => {
 });
 
 router.patch('/api/v1/states/:id', (req, res, next) => {
-  usStates.findOneAndUpdate({
+  usState.findOneAndUpdate({
       _id: req.params.id,
     }, req.body, {
       new: true,

@@ -1,12 +1,15 @@
 'use strict';
 import express from 'express';
+const router = express.Router();
 
 //import the model from the models folder
 import usState from '../models/us-state';
 import city from '../models/city';
 
-
-const router = express.Router();
+const models = {
+  'state': usState,
+  'city': city,
+};
 
 let sendJSON = (data, response) => {
   response.statusCode = 200;
@@ -21,16 +24,18 @@ let sendJSON = (data, response) => {
 //findonebyidanddelete
 //findbyidandupdate
 //save for post
-router.get('/api/v1/states', (req, res, next) => {
-  usState.find({})
+router.get('/api/v1/:model', (req, res, next) => {
+  const model = models[req.params.model];
+  model.find({})
     .then(result => {
       sendJSON(result, res);
     })
     .catch(next);
 });
 
-router.get('/api/v1/states/:id', (req, res, next) => {
-  usState.findOne({
+router.get('/api/v1/:model/:id', (req, res, next) => {
+  const model = models[req.params.model];
+  model.findOne({
       _id: req.params.id,
     })
     .then(result => {
@@ -39,34 +44,36 @@ router.get('/api/v1/states/:id', (req, res, next) => {
     .catch(next);
 });
 
-router.post('/api/v1/states', (req, res, next) => {
+router.post('/api/v1/:model', (req, res, next) => {
   if (Object.keys(req.body).length === 0) {
     res.statusCode = 400;
     res.statusMessage = 'bad request';
     res.setHeader('Content-Type', 'application/json');
     res.end();
   } else {
-    usState.create(req.body)
+    const model = models[req.params.model];
+    model.create(req.body)
       .then(result => sendJSON(result, res))
       .catch(next);
   }
-
 });
 
-router.delete('/api/v1/states/:id', (req, res, next) => {
-  usState.findByIdAndRemove(req.params.id)
+router.delete('/api/v1/:model/:id', (req, res, next) => {
+  const model = models[req.params.model];
+  model.findByIdAndRemove(req.params.id)
     .then(result => sendJSON(result, res))
     .catch(next);
 });
 
-router.put('/api/v1/states/:id', (req, res, next) => {
+router.put('/api/v1/:model/:id', (req, res, next) => {
   if (Object.keys(req.body).length === 0) {
     res.statusCode = 400;
     res.statusMessage = 'bad request';
     res.setHeader('Content-Type', 'application/json');
     res.end();
   } else {
-    usState.findByIdAndUpdate({
+    const model = models[req.params.model];
+    model.findByIdAndUpdate({
         _id: req.params.id,
       }, req.body, {
         new: true,
@@ -74,11 +81,11 @@ router.put('/api/v1/states/:id', (req, res, next) => {
       .then(result => sendJSON(result, res))
       .catch(next);
   }
-
 });
 
-router.patch('/api/v1/states/:id', (req, res, next) => {
-  usState.findOneAndUpdate({
+router.patch('/api/v1/:model/:id', (req, res, next) => {
+  const model = models[req.params.model];
+  model.findOneAndUpdate({
       _id: req.params.id,
     }, req.body, {
       new: true,

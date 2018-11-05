@@ -2,7 +2,7 @@
 ===
 
 ## Submission Instructions
-  * Follow standard lab submission instructions
+  * Follow standard lab submission instructions using super-goose-skeleton as starting point.
 
 ## Learning Objectives  
 * students will be able to create basic authorization middleware

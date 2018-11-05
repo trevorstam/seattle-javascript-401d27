@@ -2,7 +2,7 @@
 ===
 
 ## Submission Instructions
-  * Follow standard lab submission instructions using super-goose-skeleton as starting point.
+  * Follow standard lab submission instructions using [super-goose-skeleton](https://github.com/codefellows/seattle-javascript-401d27/tree/master/super-goose-skeleton) as starting point.
 
 ## Learning Objectives  
 * students will be able to create basic authorization middleware

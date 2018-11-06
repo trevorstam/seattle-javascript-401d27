@@ -16,6 +16,7 @@
   "dependencies": {
     "babel-env": "^2.4.1",
     "babel-eslint": "^10.0.1",
+    "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "bcrypt": "^3.0.2",
     "cors": "^2.8.4",

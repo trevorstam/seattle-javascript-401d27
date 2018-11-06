@@ -8,9 +8,6 @@
 // });
 
 
-// router.get('/ping', (request, response) => {
-//   response.send('pong');
-// });
 
 // export default router;
 
@@ -25,9 +22,16 @@ router.get('/api/signin', auth, (request, response) => {
 });
 
 router.post('/api/signup', (request, response, next) => {
-  User.create(request.body).then((user) => {
-    response.send(user.generateToken());
-  }).catch(next);
+  if (Object.keys(request.body).length < 3) {
+    response.statusCode = 400;
+    response.statusMessage = 'bad request';
+    response.setHeader('Content-Type', 'application/json');
+    response.end();
+  } else {
+    User.create(request.body).then((user) => {
+      response.send(user.generateToken());
+    }).catch(next);
+  }
 });
 
 export default router;
